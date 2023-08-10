@@ -41,7 +41,7 @@ spec:
             - -exc
             - |
               CGROUP_VERSION=`stat -fc %T /sys/fs/cgroup/`
-              if [ "$CGROUP_VERSION" == "tempfs" ]; then
+              if [ "$CGROUP_VERSION" == "tmpfs" ]; then
                 echo "Using v1, reverting..."
                 sed -i 's/GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=0"/GRUB_CMDLINE_LINUX=""/' /etc/default/grub
                 update-grub
